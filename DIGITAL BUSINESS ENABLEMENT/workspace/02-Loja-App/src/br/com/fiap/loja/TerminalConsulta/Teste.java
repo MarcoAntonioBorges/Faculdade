@@ -4,12 +4,18 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import br.com.fiap.loja.bo.EstoqueBO;
 import br.com.fiap.loja.singleton.PropertySingleton;
 
 public class Teste {
+	private static Logger log = Logger.getLogger(Teste.class);
+	
 	@SuppressWarnings("all")
 	public static void main(String[] args) {
+		
+		log.warn("Programa iniciado");
 		
 		String[] camisetas = new String[]{"Camiseta branca", "Camiseta Azul", "Camiseta Rosa"};
 		String nomeLoja = PropertySingleton.getInstance().getProperty("nome");
@@ -30,6 +36,6 @@ public class Teste {
 		System.out.println(EstoqueBO.consultaProduto(cod).getAll());
 		
 		teclado.close();
-		
+		log.warn("Programa finalizado");
 	}
 }
