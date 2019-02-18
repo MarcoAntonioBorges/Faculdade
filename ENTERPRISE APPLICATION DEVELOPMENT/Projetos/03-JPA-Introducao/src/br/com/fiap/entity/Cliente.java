@@ -44,7 +44,7 @@ public class Cliente {
 	private Genero genero;
 	
 	
-	@Column(updatable=false, name="dt_cadastro", nullable=false)
+	@Column(updatable=false, name="dt_cadastro")
 	@CreationTimestamp
 	@Temporal(TemporalType.DATE)
 	private Calendar dataCadastro;

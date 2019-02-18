@@ -4,23 +4,31 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class Teste {
+import br.com.fiap.entity.Cliente;
+
+public class TestePesquisa {
 
 	public static void main(String[] args) {
+		// Pesquisar um cliente com codigo
 		
-		//CLIENTE_ORACLE
-		
-		//Criar um gerenciador de entidades:
-		
-		//Primeiro cria a fabrica
 		EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("CLIENTE_ORACLE");
-		//Depois, a fabrica cria os Entity Manager
+		
 		EntityManager em = fabrica.createEntityManager();
 		
-		//Fecha a fabrica e o Entity Manager
+		//Busca o cliente
+		Cliente cli = em.find(Cliente.class, 2);
+		
+		
+		System.out.println(cli.getNome());
+
+		
+		cli.setNome("Francisco");
+		
+		em.getTransaction().begin();
+		em.getTransaction().commit();
+		
 		em.close();
 		fabrica.close();
-
 	}
 
 }
