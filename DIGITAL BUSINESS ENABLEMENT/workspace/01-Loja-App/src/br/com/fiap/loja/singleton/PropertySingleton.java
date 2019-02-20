@@ -3,6 +3,7 @@ package br.com.fiap.loja.singleton;
 import java.io.IOException;
 import java.util.Properties;
 
+/* CLASSE SINGLETON */
 public class PropertySingleton {
 
 	private static Properties p;
