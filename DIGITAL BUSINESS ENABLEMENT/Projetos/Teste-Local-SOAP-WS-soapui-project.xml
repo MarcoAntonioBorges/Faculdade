@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ecab20b1-68bb-4a54-8eb1-d8169baf13be" activeEnvironment="Default" name="Teste Local SOAP WS" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="f86faf48-7bbd-4726-913d-038c4cbc2463" wsaVersion="NONE" name="EstoqueBOSoap12Binding" type="wsdl" bindingName="{http://bo.loja.fiap.com.br}EstoqueBOSoap12Binding" soapVersion="1_2" anonymous="optional" definition="http://localhost:8082/ExemploWsSOAP/services/EstoqueBO?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://localhost:8082/ExemploWsSOAP/services/EstoqueBO.EstoqueBOHttpSoap12Endpoint/</con:endpoint></con:endpoints><con:operation id="d65fdc6e-558b-482f-a12b-8cb5c49bffeb" isOneWay="false" action="urn:consultaProduto" name="consultaProduto" bindingOperationName="consultaProduto" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8e655c55-4bef-496b-993c-277e46f75fec" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/ExemploWsSOAP/services/EstoqueBO.EstoqueBOHttpSoap12Endpoint/</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:bo="http://bo.loja.fiap.com.br">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <bo:consultaProduto>\r
+         <bo:codigo>4021</bo:codigo>\r
+      </bo:consultaProduto>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:consultaProduto"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="eebb93ca-b50e-4333-b384-96b9d447b38a" wsaVersion="NONE" name="EstoqueBOSoap11Binding" type="wsdl" bindingName="{http://bo.loja.fiap.com.br}EstoqueBOSoap11Binding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8082/ExemploWsSOAP/services/EstoqueBO?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8082/ExemploWsSOAP/services/EstoqueBO?wsdl"><con:part><con:url>http://localhost:8082/ExemploWsSOAP/services/EstoqueBO?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://bo.loja.fiap.com.br" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://bo.loja.fiap.com.br" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax21="http://beans.loja.fiap.com.br/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:documentation>Please Type your service description here</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://bo.loja.fiap.com.br" xmlns:ax22="http://beans.loja.fiap.com.br/xsd">
+      <xs:import namespace="http://beans.loja.fiap.com.br/xsd"/>
+      <xs:element name="consultaProduto">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="codigo" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="consultaProdutoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax22:Camiseta"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://beans.loja.fiap.com.br/xsd">
+      <xs:complexType name="Camiseta">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="all" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="codigo" type="xs:int"/>
+          <xs:element minOccurs="0" name="desc" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="preco" type="xs:double"/>
+          <xs:element minOccurs="0" name="qtde" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="consultaProdutoRequest">
+    <wsdl:part name="parameters" element="ns:consultaProduto"/>
+  </wsdl:message>
+  <wsdl:message name="consultaProdutoResponse">
+    <wsdl:part name="parameters" element="ns:consultaProdutoResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="EstoqueBOPortType">
+    <wsdl:operation name="consultaProduto">
+      <wsdl:input message="ns:consultaProdutoRequest" wsaw:Action="urn:consultaProduto"/>
+      <wsdl:output message="ns:consultaProdutoResponse" wsaw:Action="urn:consultaProdutoResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EstoqueBOSoap11Binding" type="ns:EstoqueBOPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="consultaProduto">
+      <soap:operation soapAction="urn:consultaProduto" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EstoqueBOSoap12Binding" type="ns:EstoqueBOPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="consultaProduto">
+      <soap12:operation soapAction="urn:consultaProduto" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EstoqueBOHttpBinding" type="ns:EstoqueBOPortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="consultaProduto">
+      <http:operation location="consultaProduto"/>
+      <wsdl:input>
+        <mime:content type="application/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="application/xml" part="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EstoqueBO">
+    <wsdl:port name="EstoqueBOHttpSoap11Endpoint" binding="ns:EstoqueBOSoap11Binding">
+      <soap:address location="http://localhost:8082/ExemploWsSOAP/services/EstoqueBO.EstoqueBOHttpSoap11Endpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="EstoqueBOHttpSoap12Endpoint" binding="ns:EstoqueBOSoap12Binding">
+      <soap12:address location="http://localhost:8082/ExemploWsSOAP/services/EstoqueBO.EstoqueBOHttpSoap12Endpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="EstoqueBOHttpEndpoint" binding="ns:EstoqueBOHttpBinding">
+      <http:address location="http://localhost:8082/ExemploWsSOAP/services/EstoqueBO.EstoqueBOHttpEndpoint/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8082/ExemploWsSOAP/services/EstoqueBO.EstoqueBOHttpSoap11Endpoint/</con:endpoint></con:endpoints><con:operation id="5d4f615f-0a8e-43bc-b41b-d8d18fe86b85" isOneWay="false" action="urn:consultaProduto" name="consultaProduto" bindingOperationName="consultaProduto" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="eb2c59c4-d492-44e9-bbaf-ff6dd5449ec4" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/ExemploWsSOAP/services/EstoqueBO.EstoqueBOHttpSoap11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bo="http://bo.loja.fiap.com.br">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <bo:consultaProduto>\r
+         <bo:codigo>402</bo:codigo>\r
+      </bo:consultaProduto>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:consultaProduto"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
