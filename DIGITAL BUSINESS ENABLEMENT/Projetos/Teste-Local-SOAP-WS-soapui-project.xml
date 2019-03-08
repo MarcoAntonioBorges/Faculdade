@@ -192,7 +192,7 @@
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <bo:consultaProduto>\r
-         <bo:codigo>402</bo:codigo>\r
+         <bo:codigo>4020</bo:codigo>\r
       </bo:consultaProduto>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:consultaProduto"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
