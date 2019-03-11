@@ -1,6 +1,5 @@
 package br.com.fiap.dao.impl;
 
-import java.lang.reflect.Parameter;
 import java.lang.reflect.ParameterizedType;
 
 import javax.persistence.EntityManager;
@@ -64,7 +63,7 @@ public abstract class GenericDAOImpl<Tabela, Chave> implements GenericDAO<Tabela
 		
 		try {
 			em.getTransaction().begin();
-			em.getTransaction();
+			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			em.getTransaction().rollback();
