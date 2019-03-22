@@ -44,6 +44,22 @@ public class Produto {
 		this.codigo = codigo;
 	}
 
+	public List<ItemCarrinho> getItemCarrinho() {
+		return itemCarrinho;
+	}
+
+	public void setItemCarrinho(List<ItemCarrinho> itemCarrinho) {
+		this.itemCarrinho = itemCarrinho;
+	}
+
+	public List<Fornecedor> getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(List<Fornecedor> fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -59,7 +75,6 @@ public class Produto {
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
-	
-	
+
 	
 }

@@ -30,12 +30,30 @@ public class Cliente {
 	@Column(name="ds_cpf", length=14)
 	private String cpf;
 
+	public Cliente() {
+		super();
+	}
+
+	public Cliente(String nome, String cpf) {
+		super();
+		this.nome = nome;
+		this.cpf = cpf;
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
+	}
+
+	public CarrinhoCompras getCarrinho() {
+		return carrinho;
+	}
+
+	public void setCarrinho(CarrinhoCompras carrinho) {
+		this.carrinho = carrinho;
 	}
 
 	public String getNome() {
@@ -53,6 +71,7 @@ public class Cliente {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
 	
 	
 	

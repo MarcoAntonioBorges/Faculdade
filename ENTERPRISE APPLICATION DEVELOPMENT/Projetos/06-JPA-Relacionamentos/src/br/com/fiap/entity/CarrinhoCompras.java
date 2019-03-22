@@ -3,6 +3,7 @@ package br.com.fiap.entity;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,8 @@ public class CarrinhoCompras {
 	@GeneratedValue(generator="carrinho", strategy=GenerationType.SEQUENCE)
 	private int codigo;
 	
-	@OneToOne
+	//cascade -> executa a ação configurada na relação
+	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="cd_cliente", nullable=false)
 	private Cliente cliente;
 	
@@ -40,18 +42,40 @@ public class CarrinhoCompras {
 	
 	@Column(name="vl_total", nullable=false)
 	private double valorTotal;
+	
 
-	
-	
-	
-	
-	
+	public CarrinhoCompras() {
+		super();
+	}
+
+	public CarrinhoCompras(Cliente cliente, double valorTotal) {
+		super();
+		this.cliente = cliente;
+		this.valorTotal = valorTotal;
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public List<ItemCarrinho> getItemCarrinho() {
+		return itemCarrinho;
+	}
+
+	public void setItemCarrinho(List<ItemCarrinho> itemCarrinho) {
+		this.itemCarrinho = itemCarrinho;
 	}
 
 	public Calendar getData() {
@@ -70,13 +94,5 @@ public class CarrinhoCompras {
 		this.valorTotal = valorTotal;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	
 	
 }

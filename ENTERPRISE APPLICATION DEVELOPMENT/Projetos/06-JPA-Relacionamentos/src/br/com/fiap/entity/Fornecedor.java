@@ -38,6 +38,14 @@ public class Fornecedor {
 		this.codigo = codigo;
 	}
 
+	public List<Produto> getProduto() {
+		return produto;
+	}
+
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -53,6 +61,8 @@ public class Fornecedor {
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
+
+	
 	
 	
 	

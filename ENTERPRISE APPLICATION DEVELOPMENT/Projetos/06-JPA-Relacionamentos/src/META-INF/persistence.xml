@@ -12,7 +12,7 @@
 
 			<!-- update: Alter table/create create: drop e create validate: valida 
 				as classes com as tabelas -->
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.Oracle12cDialect" />
 			<property name="javax.persistence.jdbc.user" value="SYSTEM" />
