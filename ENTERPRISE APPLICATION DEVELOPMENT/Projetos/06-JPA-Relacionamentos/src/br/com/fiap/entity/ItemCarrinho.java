@@ -21,19 +21,19 @@ public class ItemCarrinho {
 	private int codigo;
 	
 	@ManyToOne
-	@JoinColumn(name="cd_carrinho", nullable=false)
+	@JoinColumn(name="cd_carrinho")
 	private CarrinhoCompras carrinho;
 	
 	
 	@ManyToOne
-	@JoinColumn(name="cd_produto", nullable=false)
+	@JoinColumn(name="cd_produto")
 	private Produto produto;
 	
 	
-	@Column(name="nr_quantidade", nullable=false)
+	@Column(name="nr_quantidade")
 	private int quantidade;
 	
-	@Column(name="vl_item_carrinho", nullable=false)
+	@Column(name="vl_item_carrinho")
 	private double valor;
 
 	public int getCodigo() {

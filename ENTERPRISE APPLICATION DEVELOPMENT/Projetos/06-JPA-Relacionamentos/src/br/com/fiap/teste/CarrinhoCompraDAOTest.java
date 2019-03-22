@@ -15,6 +15,7 @@ import br.com.fiap.dao.impl.CarrinhoCompraDAOImpl;
 import br.com.fiap.dao.impl.ClienteDAOImpl;
 import br.com.fiap.entity.CarrinhoCompras;
 import br.com.fiap.entity.Cliente;
+import br.com.fiap.entity.ItemCarrinho;
 import br.com.fiap.exception.CodigoInexistenteException;
 import br.com.fiap.singleton.EntityManagerFactorySingleton;
 
@@ -39,6 +40,14 @@ class CarrinhoCompraDAOTest {
 		Cliente cliente = new Cliente("Marco A", "446254498778");
 		CarrinhoCompras carrinho = new CarrinhoCompras(cliente, 100);
 		
+		ItemCarrinho item1 = new ItemCarrinho();
+		item1.setValor(100);
+		
+		ItemCarrinho item2 = new ItemCarrinho();
+		item2.setValor(500);
+		
+		carrinho.addItem(item1);
+		carrinho.addItem(item2);
 		
 		try {
 			//clienteDao.cadastrar(cliente);

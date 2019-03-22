@@ -1,11 +1,13 @@
 package br.com.fiap.entity;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,12 +31,20 @@ public class CarrinhoCompras {
 	private int codigo;
 	
 	//cascade -> executa a ação configurada na relação
-	@OneToOne(cascade=CascadeType.PERSIST)
+	@OneToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
 	@JoinColumn(name="cd_cliente", nullable=false)
 	private Cliente cliente;
 	
-	@OneToMany(mappedBy="carrinho")
-	private List<ItemCarrinho> itemCarrinho;
+	@OneToMany(mappedBy="carrinho", cascade = CascadeType.PERSIST)
+	private List<ItemCarrinho> itemCarrinho = new ArrayList<>();
+	
+	public void addItem(ItemCarrinho item) {
+		// Adiciona o item na lista
+		itemCarrinho.add(item);
+		
+		// Adiciona o carrinho no item
+		item.setCarrinho(this);
+	}
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="dt_carrinho")
