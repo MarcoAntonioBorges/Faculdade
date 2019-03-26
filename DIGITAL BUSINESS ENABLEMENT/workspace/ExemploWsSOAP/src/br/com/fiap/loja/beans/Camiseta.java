@@ -3,9 +3,8 @@ package br.com.fiap.loja.beans;
 import java.io.Serializable;
 
 public class Camiseta implements Serializable{
-	/**
-	 * 
-	 */
+	
+	
 	private static final long serialVersionUID = 1L;
 	
 	private int codigo;
@@ -13,8 +12,7 @@ public class Camiseta implements Serializable{
 	private int qtde;
 	private String desc;
 	
-	public Camiseta() {
-	}
+	public Camiseta() {}
 	
 	
 

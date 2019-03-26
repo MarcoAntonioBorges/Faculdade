@@ -3,6 +3,8 @@ package br.com.fiap.loja.beans;
 import java.io.Serializable;
 
 public class Camiseta implements Serializable{
+
+	
 	/**
 	 * 
 	 */

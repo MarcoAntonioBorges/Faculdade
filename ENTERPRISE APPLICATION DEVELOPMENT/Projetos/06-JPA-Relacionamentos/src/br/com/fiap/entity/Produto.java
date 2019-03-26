@@ -2,17 +2,19 @@ package br.com.fiap.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ManyToAny;
 
 @Entity
 @Table(name="T_PRODUTO")
@@ -27,14 +29,29 @@ public class Produto {
 	@OneToMany(mappedBy="produto")
 	private List<ItemCarrinho> itemCarrinho;
 	
-	@ManyToMany
-	private List<Fornecedor> fornecedor;
 	
 	@Column(name="nm_produto", nullable=false, length=50)
 	private String nome;
 	
+	@ManyToMany(cascade=CascadeType.PERSIST)
+	@JoinTable(name="T_PRODUTO_FORNECEDOR", joinColumns = @JoinColumn(name="cd_produto"), inverseJoinColumns = @JoinColumn(name="cd_fornecedor"))
+	private List<Fornecedor> fornecedores;
+	
 	@Column(name="vl_produto", nullable=false)
-	private double valor;
+	private double valor;	
+	
+	
+
+	public Produto(String nome, List<Fornecedor> fornecedores, double valor) {
+		super();
+		this.nome = nome;
+		this.fornecedores = fornecedores;
+		this.valor = valor;
+	}
+
+	public Produto() {
+		super();
+	}
 
 	public int getCodigo() {
 		return codigo;
@@ -52,14 +69,6 @@ public class Produto {
 		this.itemCarrinho = itemCarrinho;
 	}
 
-	public List<Fornecedor> getFornecedor() {
-		return fornecedor;
-	}
-
-	public void setFornecedor(List<Fornecedor> fornecedor) {
-		this.fornecedor = fornecedor;
-	}
-
 	public String getNome() {
 		return nome;
 	}
@@ -74,6 +83,14 @@ public class Produto {
 
 	public void setValor(double valor) {
 		this.valor = valor;
+	}
+
+	public List<Fornecedor> getFornecedores() {
+		return fornecedores;
+	}
+
+	public void setFornecedores(List<Fornecedor> fornecedores) {
+		this.fornecedores = fornecedores;
 	}
 
 	
