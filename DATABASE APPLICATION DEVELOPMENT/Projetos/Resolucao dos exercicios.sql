@@ -10,8 +10,12 @@ begin
     
     v_name := 'Marco Antonio';
     
-    v_cout = CO
+    v_cout := 0;
     
     dbms_output.DBMS_OUTPUT.PUT_LINE(INSTR(v_name, ' ', ));
     
 end;
+
+
+
+

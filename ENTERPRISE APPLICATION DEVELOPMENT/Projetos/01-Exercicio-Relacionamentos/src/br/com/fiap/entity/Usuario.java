@@ -28,7 +28,14 @@ public class Usuario {
 	@ManyToMany(mappedBy="usuarios")
 	private List<ItemTeste> itemTestes;
 	
-	
+
+	public List<ItemTeste> getItemTestes() {
+		return itemTestes;
+	}
+
+	public void setItemTestes(List<ItemTeste> itemTestes) {
+		this.itemTestes = itemTestes;
+	}
 
 	public int getCodigo() {
 		return codigo;

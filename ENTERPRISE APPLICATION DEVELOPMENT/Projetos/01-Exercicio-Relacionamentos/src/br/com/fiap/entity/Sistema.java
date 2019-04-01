@@ -29,13 +29,14 @@ public class Sistema {
 	private List<CasoTeste> casos;
 	
 	
-	public void addItem(CasoTeste item) {
-		// Adiciona o item na lista
-		casos.add(item);
-		
-		// Adiciona o carrinho no item
-		item.setSistema(this);
-	}
+	
+//	public void addItem(CasoTeste item) {
+//		// Adiciona o item na lista
+//		casos.add(item);
+//		
+//		// Adiciona o carrinho no item
+//		item.setSistema(this);
+//	}
 	
 	
 	public Sistema() {

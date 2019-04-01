@@ -34,10 +34,18 @@ public class CasoTeste {
 	@JoinColumn(name="cd_sistema")
 	private Sistema sistema;
 	
-	@OneToMany(mappedBy="casoTeste")
+	@OneToMany(mappedBy="casoTeste", cascade =  CascadeType.PERSIST)
 	private List<ItemTeste> itemTestes;
 	
 
+	public void addItem(ItemTeste item) {
+		// Adiciona o item na lista
+		itemTestes.add(item);
+
+		// Adiciona o carrinho no item
+		item.setCasoTeste(this);
+	}
+	
 	
 	public CasoTeste(String nome, String descricao) {
 		super();
