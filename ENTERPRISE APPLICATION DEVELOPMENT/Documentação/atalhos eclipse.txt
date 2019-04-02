@@ -1,3 +1,0 @@
-ggas -> Get/Set
-gcu -> Construtor cheio
-gcf -> Construtor vazio
