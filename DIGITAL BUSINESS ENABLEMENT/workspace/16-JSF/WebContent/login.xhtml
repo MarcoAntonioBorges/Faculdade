@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html">
+
+<body>
+
+	<h1>Login FIAP</h1>
+	<h:form>
+		<h:outputLabel value="Usuario: "/>
+		<h:inputText value="#{loginBean.usuario}"/>
+		<br/>
+		<h:outputLabel value="Senha: "/>
+		<h:inputText value="#{loginBean.senha}"/>
+		<br/>
+		<h:commandButton actionListener="#{loginBean.autenticar}" value="Entrar"/>
+		
+		<br/>
+		<h:outputText value="#{loginBean.resultado}"/>
+	</h:form>
+</body>
+</html>
